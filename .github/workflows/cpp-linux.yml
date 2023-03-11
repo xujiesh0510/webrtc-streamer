@@ -23,10 +23,12 @@ jobs:
 
     - name: fetch webrtc
       run: |
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_ACTOR}"
           mkdir webrtc
           pushd webrtc
-          echo << EOF
-            solutions = [
+          cat << EOF > .gclient
+          solutions = [
               {
                 "managed": False,
                 "name": "src",
@@ -35,8 +37,8 @@ jobs:
                 "deps_file": "DEPS",
                 "safesync_url": "",
               },
-            ]
-            target_os = []
+          ]
+          target_os = []
           EOF
           gclient sync 
           popd
