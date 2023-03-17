@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.0.0)
 project (webrtc-streamer)
 
 set (WEBRTCROOT "${CMAKE_CURRENT_SOURCE_DIR}/../webrtc" CACHE STRING "WEBRTC root directory")
-set (WEBRTCDESKTOPCAPTURE "ON" CACHE STRING "WEBRTC Desktop capture")
+set (WEBRTCDESKTOPCAPTURE "OFF" CACHE STRING "WEBRTC Desktop capture")
 if(NOT CMAKE_BUILD_TYPE)
 set (CMAKE_BUILD_TYPE "Release")
 endif()
